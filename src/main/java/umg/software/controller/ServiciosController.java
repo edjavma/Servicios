@@ -67,6 +67,18 @@ public class ServiciosController {
 		return new ArrayList<>();
 	}
 	
+	@RequestMapping(value = "/find/dpi", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public Ciudadano findByName(@RequestParam("dpi") String dpi) {
+		//return collectionService.findByNameAge(name, age);
+		try {
+			
+			return collectionService.findByDpi(dpi);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	
 	@RequestMapping(value = "/servicios", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public List<Servicio> findServicios(){

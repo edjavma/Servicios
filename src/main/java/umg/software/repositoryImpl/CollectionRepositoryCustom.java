@@ -8,4 +8,5 @@ import umg.software.entity.Ciudadano;
 public interface CollectionRepositoryCustom {
 
 	public List<Ciudadano> findMatch(Map<String, Object> params);
+	public Ciudadano findByDpi(String dpi);
 }

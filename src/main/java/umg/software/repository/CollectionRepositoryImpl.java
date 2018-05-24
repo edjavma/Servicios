@@ -58,4 +58,17 @@ public class CollectionRepositoryImpl implements CollectionRepositoryCustom {
 		}
 	}
 
+	@Override
+	public Ciudadano findByDpi(String dpi) {
+		try {
+			Query resultQuery = new Query();
+			resultQuery.addCriteria(Criteria.where("dpi").is(dpi));			
+			Ciudadano result = mongoTemplate.findOne(resultQuery, Ciudadano.class);			
+			return result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }

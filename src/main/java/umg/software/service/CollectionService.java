@@ -13,6 +13,7 @@ import umg.software.repository.CollectionRepository;
 public interface CollectionService {
 	public List<Ciudadano> findAll();
 	public List<Ciudadano> findMatch(Map<String, Object> params);
+	public Ciudadano findByDpi(String dpi);
 	public void crearCiudadano(Ciudadano ciudadano);
 }
 
@@ -46,6 +47,11 @@ class CollectionServiceImpl implements CollectionService {
 	@Override
 	public void crearCiudadano(Ciudadano ciudadano) {
 		repo.save(ciudadano);
+	}
+
+	@Override
+	public Ciudadano findByDpi(String dpi) {
+		return repo.findByDpi(dpi);
 	}
 	
 	
